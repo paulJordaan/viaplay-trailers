@@ -1,17 +1,17 @@
-function notFound(req, res, next) {
-  res.status(404);
-  const error = new Error(`🔍 - Not Found - ${req.originalUrl}`);
+function notFound(request, response, next) {
+  response.status(404);
+  const error = new Error(`Not Found - ${request.originalUrl}`);
   next(error);
 }
 
 /* eslint-disable no-unused-vars */
-function errorHandler(err, req, res, next) {
+function errorHandler(error, request, response, next) {
   /* eslint-enable no-unused-vars */
-  const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
-  res.status(statusCode);
-  res.json({
-    message: err.message,
-    stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack
+  const statusCode = response.statusCode !== 200 ? response.statusCode : 500;
+  response.status(statusCode);
+  response.json({
+    message: error.message,
+    stack: error.stack
   });
 }
 
