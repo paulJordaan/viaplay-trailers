@@ -1,45 +1,57 @@
-# Express API Starter
+# Viaplay Movie Trailer API
 
-Includes API Server utilities:
+This project was scafolded using [express-api-starter](https://github.com/w3cj/express-api-starter).
 
-* [morgan](https://www.npmjs.com/package/morgan)
-  * HTTP request logger middleware for node.js
-* [helmet](https://www.npmjs.com/package/helmet)
-  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
-* [dotenv](https://www.npmjs.com/package/dotenv)
-  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
+The goal of the project is to provide an API that allows the user to retrieve the Youtube Trailer for any of the movies available on Viaplay's content API.
 
-Development utilities:
+## Usage
 
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [mocha](https://www.npmjs.com/package/mocha)
-  * ☕️ Simple, flexible, fun JavaScript test framework for Node.js & The Browser ☕️
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
+The api get served on http://localhost:5000/api by default.
+
+The trailer endpoint needs to be called with the Viaplay Movie Resource Link passed as an query parameter. See the below example as reference:
+
+```
+http://localhost:5000/api/trailers/?link=https://content.viaplay.se/pc-se/film/for-your-eyes-only-1981
+```
+
+Which will respond with the following object:
+
+```
+{
+
+"link": "https://www.youtube.com/watch?v=9Ykn9zPnQME"
+
+}
+```
 
 ## Setup
 
 ```
+
 npm install
+
 ```
 
 ## Lint
 
 ```
+
 npm run lint
+
 ```
 
 ## Test
 
 ```
+
 npm run test
+
 ```
 
 ## Development
 
 ```
+
 npm run dev
+
 ```
